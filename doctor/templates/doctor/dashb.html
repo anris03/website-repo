@@ -1,0 +1,33 @@
+{%extends 'doctor/base.html'%}
+{%block title%}
+Dashboard
+{%endblock%}
+
+{%block content%}
+{%if user.is_authenticated%}
+<h1>{{status}}</h1>
+<div">
+<img style="width: 5rem;
+height: 5rem;
+object-fit: cover;
+border-radius: 50%" src="{{user.usercreation.pic.url}}">
+</div>
+<span style="font-weight: bold;">Username:</span><span> </span><span>{{user.username}}</span> 
+<br>
+<br>
+<span style="font-weight: bold;">Name:</span><span> </span>{{user.first_name}} {{user.last_name}}</span>
+<br>
+<span style="font-weight: bold;">First Name:</span><span> </span>{{user.last_name}}</span>
+<br>
+<span style="font-weight: bold;">Email:</span><span> </span>{{user.email}}</span>
+<br>
+<h3>Address:</h3>
+<div>{{user.usercreation.address.line1}}</div>
+<div>{{user.usercreation.address.city}}</div>
+<div>{{user.usercreation.address.state}}</div>
+<div>{{user.usercreation.address.pincode}}</div>
+
+{%else%}
+Login first.
+{%endif%}
+{%endblock%}

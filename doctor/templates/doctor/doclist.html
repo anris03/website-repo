@@ -1,0 +1,27 @@
+{%extends 'doctor/base.html'%}
+
+{%block title%}
+Appointment
+{%endblock%}
+
+{%block content%}
+<br>
+{% if user.is_authenticated and statusp %}
+{% for doc in docs %}
+    <div>
+        <div>
+            <img style="width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            border-radius: 50%" src="{{doc.usercreation.pic.url}}">
+        </div>
+        <span>{{doc.first_name}}  {{doc.last_name}}</span>
+        <div><a href="{% url 'book' doc.usercreation.cal_id %}"><button>Book Appointment</button></a></div>
+    </div>
+    <br>
+    <br>
+{%endfor%}
+{%else%}
+<p>Login as a patient first.</p>
+{%endif%}
+{%endblock%}

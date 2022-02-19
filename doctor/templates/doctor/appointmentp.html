@@ -1,0 +1,25 @@
+{%extends 'doctor/base.html'%}
+
+{%block title%}
+Book
+{%endblock%}
+
+{% block content %}
+{% if user.is_authenticated and statusp %}
+<form method="POST">
+    {%csrf_token%}
+<label for="specs-select">Choose Speciality:</label>
+<select name="speciality" id="specs-select">
+    {% for spec in specs %}
+    <option value="{{spec.spec}}">{{spec.spec}}</option>
+    {%endfor%}
+</select>
+<br>
+<input type="datetime-local" name="datetime">
+<br>
+<button>Book</button>
+</form>
+{%else%}
+<p>Login as a patient first.</p>
+{%endif%}
+{%endblock%}

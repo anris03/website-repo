@@ -1,0 +1,12 @@
+{%extends 'doctor/base.html'%}
+{% load crispy_forms_tags %}
+{%block title%}
+Register
+{%endblock%}
+    {%block content%}
+    <form method='POST' enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form|crispy}}
+        <button>Submit</button>
+    </form>
+    {%endblock%}

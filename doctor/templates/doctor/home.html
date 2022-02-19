@@ -1,0 +1,22 @@
+{%extends 'doctor/base.html'%}
+{%block nav%}
+<body>
+    {% if user.is_authenticated and statusp %}
+    <a style="color: white;
+    padding-left: 1rem;padding-right: 1rem;" href="{% url 'appointment' %}">Book Appointment</a>
+    {% endif %}
+    <a style="color: white;
+            padding-left: 1rem;padding-right: 1rem;" href="{% url 'register' %}">Register </a>
+    <a style="color: white;
+            padding-left: 1rem;padding-right: 1rem;" href="{% url 'categories' %}">Diseases </a>
+
+    {% if user.is_authenticated and status %}
+    <a style="color: white;
+    padding-left: 1rem;padding-right: 1rem;" href="{% url 'myposts' %}">My Posts</a>
+    <a href="{% url 'add' %}"style="font-size: 1.1rem;color: white;
+    padding-left: 1rem;padding-right: 1rem;"> Create Post </a>
+    <a href="{% url 'draft' %}"style="font-size: 1.1rem;color: white;
+    padding-left: 1rem;padding-right: 1rem;"> Draft Post </a>
+    {%endif%}
+</body>
+{%endblock%}
